@@ -7,32 +7,50 @@ import Addnewdoctor from './components/Addnewdoctor'
 import {useState} from 'react'
 import { useEffect } from 'react'
 import Home from './components/Home'
+import {Routes,Route} from 'react-router-dom'
+import Doctordetails from './components/Doctordetails'
+import Weather from './components/weather'
 
 function App() {
-  let[count, setCount] = useState(0)
-  let[val,setVal] = useState(0)
+  // let[count, setCount] = useState(0)
+  // let[val,setVal] = useState(0)
   // useEffect(()=>{
   //   console.log('api running')
   // })
   // useEffect(()=>{
   //   console.log('api running')
   // },[])
-  useEffect(()=>{
-    console.log('api running')
-  },[val])
+  // useEffect(()=>{
+  //   console.log('api running')
+  // },[val])
 
   return (
     <div>
-      <button onClick={()=>{
+      {/* <button onClick={()=>{
         setVal(val+1)
       }}>update val</button>
       {count}
       <button onClick={()=>{
         setCount(count+1)
         console.log(count)
-      }}>increment</button>
+      }}>increment</button> */}
       <Navbar/>
-      <Section/>
+      <Routes>
+        <Route path='/' element={<Section/>}/>
+        <Route path='/adddoctor' element={<Addnewdoctor/>}/>
+        <Route path='/doctordetails/:id' element={<Doctordetails/>}></Route>
+        <Route path='/weather' element={<Weather/>}/>
+      </Routes>
+      {/* <Home/> */}
+      {/* <Addnewdoctor/> */}
+      {/* <Section/> */}
+      {/* <Doctorcard name='john' age='25' specialty='Cardiologist' gender='Male'/> */}
+      {/* <Doctorcard name='jane' age='30' specialty='Neurologist' gender='Female'/> */}
+      {/* <Doctorcard name='bob' age='40' specialty='Pediatrician' gender='Male'/> */}
+      {/* <Doctorcard name='alice' age='35' specialty='Dermatologist' gender='Female'/> */}
+      {/* <Doctorcard name='charlie' age='50' specialty='Orthopedic Surgeon' gender='Male'/> */}
+      {/* <Doctorcard name='diana' age='45' specialty='Oncologist' gender
+      {/* <Section/>
       <div className='doctorcontainer'>
         <Doctorcard name='john' age='25' specialty='Cardiologist' gender='Male'/>
         <Doctorcard name='jane' age='30' specialty='Neurologist' gender='Female'/>
@@ -41,7 +59,7 @@ function App() {
         <Doctorcard name='charlie' age='50' specialty='Orthopedic Surgeon' gender='Male'/>
         <Doctorcard name='diana' age='45' specialty='Oncologist' gender='Female'/>
       </div>
-      <Addnewdoctor/>
+      <Addnewdoctor/> */}
     </div>
   )
 }
